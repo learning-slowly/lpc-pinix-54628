@@ -3,9 +3,9 @@
 # Copyright (c) 2020, Seagate
 # SPDX-License-Identifier: Apache-2.0
 
-if BOARD_LPCXPRESSO11U68
+if BOARD_LPCPINIX54628
 
 config BOARD
-	default "lpcxpresso11u68"
+	default "lpcpinix54628"
 
 endif # BOARD_LPCXPRESSO11U68
