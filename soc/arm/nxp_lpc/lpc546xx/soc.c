@@ -30,7 +30,7 @@
  * @return 0
  */
 
-static int nxp_lpc11u6x_init(const struct device *arg)
+static int nxp_lpc546xx_init(const struct device *arg)
 {
 	ARG_UNUSED(arg);
 
@@ -50,4 +50,4 @@ static int nxp_lpc11u6x_init(const struct device *arg)
 
 	return 0;
 }
-SYS_INIT(nxp_lpc11u6x_init, PRE_KERNEL_1, 0);
+SYS_INIT(nxp_lpc546xx_init, PRE_KERNEL_1, 0);

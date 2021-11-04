@@ -1,0 +1,20 @@
+# LPC LPC11U6x MCU line
+
+# Copyright (c) 2020, Seagate
+# SPDX-License-Identifier: Apache-2.0
+
+choice
+	prompt "LPC LPC546XX MCU Selection"
+	depends on SOC_SERIES_LPC546XX
+
+config SOC_LPC54628
+	bool "SOC_LPC54628"
+
+endchoice
+
+if SOC_SERIES_LPC546XX
+
+config SOC_PART_NUMBER_LPC54628ABCD
+	bool
+
+endif # SOC_SERIES_LPC546XX

@@ -3,12 +3,12 @@
 # Copyright (c) 2020, Seagate
 # SPDX-License-Identifier: Apache-2.0
 
-if SOC_SERIES_LPC11U6X
+if SOC_SERIES_LPC546XX
 
 rsource "Kconfig.defconfig.lp*"
 
 config SOC_SERIES
-	default "lpc11u6x"
+	default "lpc546xx"
 
 config NUM_IRQS
 	# must be >= the highest interrupt number used
@@ -24,25 +24,4 @@ config PINMUX_INIT_PRIORITY
 
 endif # PINMUX
 
-if CLOCK_CONTROL
-
-config CLOCK_CONTROL_LPC11U6X
-	default y
-
-endif # CLOCK_CONTROL
-
-if SERIAL
-
-config UART_LPC11U6X
-	default y
-
-endif # SERIAL
-
-if I2C
-
-config I2C_LPC11U6X
-	default y
-
-endif # I2C
-
-endif # SOC_SERIES_LPC11U6X
+endif # SOC_SERIES_LPC546XX
