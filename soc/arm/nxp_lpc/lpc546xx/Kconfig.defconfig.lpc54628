@@ -3,9 +3,9 @@
 # Copyright (c) 2020, Seagate
 # SPDX-License-Identifier: Apache-2.0
 
-if SOC_LPC11U68
+if SOC_LPC54628
 
 config SOC
-	default "lpc11u68"
+	default "lpc54628"
 
-endif # SOC_LPC11U68
+endif # SOC_LPC54628

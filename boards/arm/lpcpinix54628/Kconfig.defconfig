@@ -8,4 +8,4 @@ if BOARD_LPCPINIX54628
 config BOARD
 	default "lpcpinix54628"
 
-endif # BOARD_LPCXPRESSO11U68
+endif # BOARD_LPCPINIX54628
