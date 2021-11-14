@@ -15,4 +15,42 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
+
+	soc {
+		
+		sram0:memory@20000000 {
+			compatible = "mmio-sram";
+			reg = <0x20000000 DT_SIZE_K(64)>;
+		};
+
+		sram1:memory@20010000 {
+			compatible = "mmio-sram";
+			reg = <0x20010000 DT_SIZE_K(64)>;
+		};
+
+		sram2:memory@20020000 {
+			compatible = "mmio-sram";
+			reg = <0x20020000 DT_SIZE_K(32)>;
+		};
+
+		sramx:memory@4000000{
+			compatible = "mmio-sram";
+			reg = <0x4000000 DT_SIZE_K(32)>;
+		};
+
+		iap: flash-controller@4009c000 {
+			compatible = "nxp,lpc-iap";
+			label = "FLASH_IAP";
+			reg = < 0x4009c000 0x18 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				reg = < 0x0 0x80000 >;
+				label = "LPC_FLASH";
+				erase-block-size = < 0x100 >;
+				write-block-size = < 0x100 >;
+			};
+		};
+	};
 };
