@@ -8,4 +8,7 @@ if BOARD_LPCPINIX54628
 config BOARD
 	default "lpcpinix54628"
 
+config GPIO_MCUX
+	default y
+
 endif # BOARD_LPCPINIX54628

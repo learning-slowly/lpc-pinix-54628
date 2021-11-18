@@ -8,4 +8,5 @@ if SOC_LPC54628
 config SOC
 	default "lpc54628"
 
+
 endif # SOC_LPC54628
