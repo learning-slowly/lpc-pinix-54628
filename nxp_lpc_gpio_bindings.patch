@@ -1,0 +1,12 @@
+diff --git a/dts/bindings/gpio/nxp,lpc-gpio.yaml b/dts/bindings/gpio/nxp,lpc-gpio.yaml
+index 6f161fa920..6a8b4a36a3 100644
+--- a/dts/bindings/gpio/nxp,lpc-gpio.yaml
++++ b/dts/bindings/gpio/nxp,lpc-gpio.yaml
+@@ -25,6 +25,7 @@ properties:
+         - 0
+         - 1
+         - 2
++        - 3
+ 
+ gpio-cells:
+   - pin
