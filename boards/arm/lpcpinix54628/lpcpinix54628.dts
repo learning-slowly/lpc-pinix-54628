@@ -33,8 +33,8 @@
 			};
 		};
 		gpio3: gpio@3 {
-			comptible = "nxp,lpc-gpio";
-			reg = <0x4008C000 0x4000>, <0x40000000 0x1000>;
+			compatible = "nxp,lpc-gpio";
+			reg = <0x4008C000 0x2488>;
 
 			label = "GPIO_3";
 			gpio-controller;
