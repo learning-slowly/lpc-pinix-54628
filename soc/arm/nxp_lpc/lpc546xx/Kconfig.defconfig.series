@@ -24,4 +24,8 @@ config PINMUX_INIT_PRIORITY
 
 endif # PINMUX
 
+config GPIO_MCUX_LPC
+	default y
+	depends on PINMUX
+
 endif # SOC_SERIES_LPC546XX
