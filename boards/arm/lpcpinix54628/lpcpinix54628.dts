@@ -32,14 +32,14 @@
 				write-block-size = < 0x100 >;
 			};
 		};
-		gpio2: gpio@2 {
+		gpio3: gpio@3 {
 			compatible = "nxp,lpc-gpio";
 			reg = <0x4008C000 0x2488>;
 
-			label = "GPIO_2";
+			label = "GPIO_3";
 			gpio-controller;
 			#gpio-cells = <2>;
-			port = <0x2>;
+			port = <0x3>;
 
 			status = "okay";
 		};

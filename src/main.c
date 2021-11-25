@@ -14,7 +14,7 @@ void main(void)
 {
 	const struct device *dev;
 	int ret;
-	dev = device_get_binding(DT_LABEL(DT_NODELABEL(gpio2)));
+	dev = device_get_binding(DT_LABEL(DT_NODELABEL(gpio3)));
 	//dev = device_get_binding(DT_GPIO_LABEL(GPIO_3,gpios));
 	if(dev == NULL) {
 		return;
