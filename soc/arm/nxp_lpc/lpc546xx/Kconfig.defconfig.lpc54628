@@ -8,5 +8,8 @@ if SOC_LPC54628
 config SOC
 	default "lpc54628"
 
+config UART_MCUX_FLEXCOMM
+	default n
+	depends on SERIAL
 
 endif # SOC_LPC54628

@@ -1,0 +1,32 @@
+diff --git a/drivers/serial/uart_mcux_flexcomm.c b/drivers/serial/uart_mcux_flexcomm.c
+index 51d214a1f4..51dc04f81d 100644
+--- a/drivers/serial/uart_mcux_flexcomm.c
++++ b/drivers/serial/uart_mcux_flexcomm.c
+@@ -243,6 +243,16 @@ static void mcux_flexcomm_isr(const struct device *dev)
+ }
+ #endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+ 
++#define BOARD_DEBUG_UART_TYPE      kSerialPort_Uart
++#define BOARD_DEBUG_UART_BASEADDR   (uint32_t) USART0
++#define BOARD_DEBUG_UART_INSTANCE   0U
++#define BOARD_DEBUG_UART_CLK_FREQ   12000000U
++#define BOARD_DEBUG_UART_CLK_ATTACH kFRO12M_to_FLEXCOMM0
++#define BOARD_DEBUG_UART_RST        kFC0_RST_SHIFT_RSTn
++#define BOARD_DEBUG_UART_CLKSRC     kCLOCK_Flexcomm0
++#define BOARD_UART_IRQ_HANDLER      FLEXCOMM0_IRQHandler
++#define BOARD_UART_IRQ              FLEXCOMM0_IRQn
++ 
+ 
+ static int mcux_flexcomm_init(const struct device *dev)
+ {
+@@ -251,6 +261,10 @@ static int mcux_flexcomm_init(const struct device *dev)
+ 	usart_parity_mode_t parity_mode;
+ 	uint32_t clock_freq;
+ 
++    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM0);
++
++    RESET_ClearPeripheralReset(BOARD_DEBUG_UART_RST);
++
+ 	/* Get the clock frequency */
+ 	if (clock_control_get_rate(config->clock_dev, config->clock_subsys,
+ 				   &clock_freq)) {

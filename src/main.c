@@ -8,6 +8,7 @@
 #include <device.h>
 #include <devicetree.h>
 #include <drivers/gpio.h>
+#include <sys/printk.h>
 
 
 void main(void)
@@ -27,8 +28,11 @@ void main(void)
 	}
 
 	while (1) {
+		printk("hello world!\n");
 		gpio_pin_set(dev, 3, 1);
 		k_msleep(1000);
+
+		printk("hello world!\n");
 		gpio_pin_set(dev, 3, 0);
 		k_msleep(1000);
 	}
