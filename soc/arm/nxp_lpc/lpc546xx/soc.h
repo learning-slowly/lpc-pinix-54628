@@ -14,6 +14,7 @@
 
 #ifndef _SOC__H_
 #define _SOC__H_
+#define __FPU_PRESENT             CONFIG_CPU_HAS_FPU
 
 #ifndef _ASMLANGUAGE
 #include <sys/util.h>

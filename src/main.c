@@ -11,6 +11,11 @@
 #include <sys/printk.h>
 
 
+
+
+
+
+
 void main(void)
 {
 	const struct device *dev;
