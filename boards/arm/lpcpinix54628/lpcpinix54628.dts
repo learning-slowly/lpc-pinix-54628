@@ -45,9 +45,37 @@
 			status = "okay";
 		};
 
+		iocon: iocon@40001000 {
+			reg = < 0x40001000 0x180>;
+			ranges = <0x0 0x40001000 0x180>;
+			pio2: pio0@100 {
+				compatible = "nxp,lpc-iocon-pio";
+				reg = <0x100 0x80>;
+				status = "okay";
+			};
+		};
 
+		sc_timer: pwm@40085000 {
+			compatible = "nxp,sctimer-pwm";
+			reg = <0x40085000 0x1000>;
+			interrupts = <12 0>;
+			status = "okay";
+			prescaler = <64>;
+			label = "SC_TIMER";
+			#pwm-cells = <2>;
+		};
 	};
-	
+
+	pwmleds {
+		compatible = "pwm-leds";
+		label = "PWM_LED";
+		red_pwm_led: red_pwm_led {
+			pwms = <&sc_timer 6 0>;
+			label = "PWM_LED";
+			status = "okay";
+		};
+	};
+
 };
 
 &flexcomm0 {
@@ -57,5 +85,9 @@
 };
 
 &pio0 {
+	status = "okay";
+};
+
+&pio1 {
 	status = "okay";
 };

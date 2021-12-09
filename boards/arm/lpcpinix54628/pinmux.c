@@ -19,6 +19,17 @@ static int lpcxpresso_54628_pinmux_init(const struct device *dev)
 	__ASSERT_NO_MSG(device_is_ready(port0));
 #endif
 
+#if DT_NODE_HAS_STATUS(DT_NODELABEL(pio1), okay)
+	const struct device *port1 = DEVICE_DT_GET(DT_NODELABEL(pio1));
+
+	__ASSERT_NO_MSG(device_is_ready(port1));
+#endif
+
+#if DT_NODE_HAS_STATUS(DT_NODELABEL(pio2), okay)
+	const struct device *port2 = DEVICE_DT_GET(DT_NODELABEL(pio2));
+
+	__ASSERT_NO_MSG(device_is_ready(port2));
+#endif
 
 #if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(flexcomm0), nxp_lpc_usart, okay) && CONFIG_SERIAL
 	/* USART0 RX,  TX */
@@ -46,6 +57,17 @@ static int lpcxpresso_54628_pinmux_init(const struct device *dev)
 	pinmux_pin_set(port0, 30, port0_pin30_config);
 
 #endif
+
+#if DT_NODE_HAS_STATUS(DT_NODELABEL(red_pwm_led), okay)
+	/* Pin is configured as SCT0_OUT6 */
+	pinmux_pin_set(port2, 2, IOCON_PIO_FUNC3 |
+				  IOCON_PIO_MODE_INACT |
+				  IOCON_PIO_SLEW_STANDARD |
+				  IOCON_PIO_INV_DI |
+				  IOCON_PIO_DIGITAL_EN |
+				  IOCON_PIO_OPENDRAIN_DI);
+#endif
+
 	return 0;
 }
 
